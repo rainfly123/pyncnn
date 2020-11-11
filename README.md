@@ -31,6 +31,9 @@ mkdir build
 cd build
 cmake -DCMAKE_PREFIX_PATH=/path/to/ncnn/build/install/lib/cmake/ncnn/ ..
 make
+如果编译失败
+则进入src 目录手动编译
+g++ -O3 -shared -std=c++11 -o ncnn`python3-config --extension-suffix` -fPIC `python3 -m pybind11 --includes` -I/root/ncnn/build/install/include/ncnn/ main.cpp ./libncnn.a
 cd ../python
 python3 setup.py install
 ```
